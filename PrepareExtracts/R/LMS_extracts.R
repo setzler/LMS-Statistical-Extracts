@@ -46,5 +46,21 @@ Extract.LMS.RegionalStayers <- function(dataloc = "PrepareExtracts/data-raw", ou
 
 }
 
+
+Extract.LMS.ComovementStayers <- function(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts"){
+
+  # get the rho_r by broad market
+  # see also Table A.7 of the AER appendix
+  # url <- "https://raw.githubusercontent.com/setzler/LMS/main/4_StatisticalAnalyses/data/params/LMS_DiD_naics2_cz.csv"
+  # destfile <- "~/Downloads/LMS_DiD_naics2_cz.csv"
+  # download.file(url = url, destfile = destfile)
+  dd <- setDT(read.csv(sprintf("%s/LMS_DiD_naics2_cz.csv",dataloc)))
+
+  write.csv(dd,file=sprintf("%s/LMS-Stayer-Comovement.csv",outputloc), row.names=F)
+
+}
+
+
 Extract.LMS.Matches(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts")
 Extract.LMS.RegionalStayers(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts")
+Extract.LMS.ComovementStayers(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts")

@@ -1,0 +1,28 @@
+---
+title: "LMS-Statistical-Extracts"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+This is a repository to help researchers use statistical extracts produced as part of two papers coauthored by Lamadon, Mogstad, and Setzler:
+
+- "Imperfect competition, compensating differentials, and rent sharing in the US labor market" by Thibaut Lamadon, Magne Mogstad, and Bradley Setzler. American Economic Review 112.1 (2022): 169-212.
+
+- "How Much Should we Trust Estimates of Firm Effects and Worker Sorting?" by Stéphane Bonhomme, Kerstin Holzheu, Thibaut Lamadon, Elena Manresa, Magne Mogstad, and Bradley Setzler. Working Paper w27368. National Bureau of Economic Research (2021).
+
+## Characteristics of Stayers in the US Tax Data
+
+
+## Characteristics of Firm-Worker Matching in the US Tax Data
+
+
+## Between and Within Firm Inequality in the US and Europe
+
+
+
+
+
