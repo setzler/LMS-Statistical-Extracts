@@ -10,12 +10,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This is a repository to help researchers use statistical extracts produced as part of two papers coauthored by Lamadon, Mogstad, and Setzler:
 
-- "Imperfect competition, compensating differentials, and rent sharing in the US labor market" by Thibaut Lamadon, Magne Mogstad, and Bradley Setzler. American Economic Review 112.1 (2022): 169-212.
+- "Imperfect competition, compensating differentials, and rent sharing in the US labor market" by Thibaut Lamadon, Magne Mogstad, and Bradley Setzler. American Economic Review 112.1 (2022): 169-212. [[LMS](https://www.bradleysetzler.com/files/Lamadon-Mogstad-Setzler.pdf)]
 
-- "How Much Should we Trust Estimates of Firm Effects and Worker Sorting?" by Stéphane Bonhomme, Kerstin Holzheu, Thibaut Lamadon, Elena Manresa, Magne Mogstad, and Bradley Setzler. Working Paper w27368. National Bureau of Economic Research (2021).
+- "How Much Should we Trust Estimates of Firm Effects and Worker Sorting?" by Stéphane Bonhomme, Kerstin Holzheu, Thibaut Lamadon, Elena Manresa, Magne Mogstad, and Bradley Setzler. Working Paper w27368. National Bureau of Economic Research (2021). [[BHLMMS](https://www.bradleysetzler.com/files/BHLMM-Setzler.pdf)]
 
+Aside from the statistical extracts described here, LMS papers also produced  publicly-available software packages that may be useful to researchers:
 
+- [PyTwoWay](https://github.com/tlamadon/pytwoway): Provides implementations of all of the estimators considered by BHLMMS, including the two-way fixed-effect estimators of Abowd, Kramarz, and Margolis (1999, Econometrica); Bonhomme, Lamadon, and Manresa (2019, Econometrica); and Kline, Saggio, and Solvsten (2020, Econometrica). This package is written in Python and can be executed from Stata.
 
+- [eventStudy](https://github.com/setzler/eventStudy): Provides difference-in-differences estimation in R that accounts for staggered treatment onset using a "stacked data" approach. Importantly, it scales to very large datasets. This package is written in R.
+
+- [textables](https://github.com/setzler/textables): Provides automated production of highly-customized LaTeX tables, including PDF compilation, directly from R. All tables in LMS and BHLMMS were produced using this package. This package is written in R.
 
 
 ## Value Added and Wage Growth for Stayers in the US Tax Data
