@@ -64,8 +64,10 @@ Extract.LMS.RegionalCharacteristics <- function(dataloc = "PrepareExtracts/data-
   write.csv(dd2,file=sprintf("%s/LMS-Regional-Passthrough.csv",outputloc), row.names=F)
   
   dd3 = dd[, list(BroadMarket = broad_market, 
-                  LaborShare = labor_share, Parameter_alpha = alpha,
+                  SampleWorkerYears = workeryears, SampleFirmYears = firmyears,
+                  LaborShare = labor_share, 
                   ValueAdded = EVA_pc, Wagebill = EWB_pc,
+                  Parameter_alpha = alpha,
                   WorkerRents_FirmLevel = Rw_firm, 
                   WorkerRents_MarketLevel = Rw_market,  
                   FirmRents_FirmLevel = Rf_firm, 
@@ -96,7 +98,27 @@ Extract.LMS.StayerDifferences <- function(dataloc = "PrepareExtracts/data-raw", 
 }
 
 
-Extract.LMS.Matches(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts")
-Extract.LMS.Matches(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts", adjusted=FALSE)
-Extract.LMS.RegionalCharacteristics(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts")
-Extract.LMS.StayerDifferences(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts")
+Extract.BHLMMS.VarDecomp <- function(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts"){
+  
+  # Within-Between
+  dd <- setDT(read.csv(sprintf("%s/BHLMMS_extract_withinbetween.csv",dataloc)))
+  dd = dd[,list( Country = country, YearRange = year_range, Set = set, 
+                 WorkerCount = workers, MoverCount = movers, FirmCount = firms,
+                 LogWageVariance = var_total, BetweenFirmVariance = between_var)]
+  dd = dd[order(YearRange,Set,Country)]
+  write.csv(dd,file=sprintf("%s/BHLMMS-WithinBetween-Variance.csv",outputloc), row.names=F)
+  
+  # Firm and Worker Effects
+  dd <- setDT(read.csv(sprintf("%s/BHLMMS_extract_vardecomp.csv",dataloc))) 
+  dd = dd[, list( Country=country, YearRange = year_range, Estimator=method, LogWageVariance = var_total, 
+                   FirmEffectVariance = var_psi, FirmWorkerEffectsCovariance = cov_psi_alpha)]
+  dd = dd[order(Country,Estimator,YearRange)]
+  write.csv(dd,file=sprintf("%s/BHLMMS-FirmEffects-Sorting.csv",outputloc), row.names=F)
+  
+}
+
+# Extract.LMS.Matches(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts")
+# Extract.LMS.Matches(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts", adjusted=FALSE)
+# Extract.LMS.RegionalCharacteristics(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts")
+# Extract.LMS.StayerDifferences(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts")
+# Extract.BHLMMS.VarDecomp(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts")
