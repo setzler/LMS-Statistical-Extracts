@@ -50,6 +50,7 @@ knitr::kable(dd[1:3])
 Here, we provide the region-specific instrumental variables estimation of the pass-through from log value added to  log earnings using the approach described under the heading ``Formal Identification Using Internal Instruments" in subsection III.A of [LMS](https://www.bradleysetzler.com/files/Lamadon-Mogstad-Setzler.pdf).  Denoting log earnings by $w$ and log value added by $y$, the empirical equation is,
 
 $$ \mathbb{E}[ \Delta y_t (w_{t+e} - w_{t-e'} - \gamma_r(y_{t+e} - y_{t-e'}))  ] = 0 $$
+
 which is estimated only among workers who are stayers and which is estimated separately for each broad market $r$. A similar equation is estimated using market-level means across all broad markets, in which case the parameter estimate is denoted $\Upsilon$.The preferred estimates of $\gamma_r$ are based on firm-level deviations from market-level means.  The estimated $(\gamma_r,\Upsilon)$ parameters can then be transformed into the preference parameters $(\rho_r,\beta)$.
 
 The statistical extract contains the following estimates:

@@ -86,6 +86,7 @@ Denoting log earnings by $w$ and log value added by $y$, the empirical
 equation is,
 
 $$ \mathbb{E}[ \Delta y_t (w_{t+e} - w_{t-e'} - \gamma_r(y_{t+e} - y_{t-e'}))  ] = 0 $$
+
 which is estimated only among workers who are stayers and which is
 estimated separately for each broad market $r$. A similar equation is
 estimated using market-level means across all broad markets, in which
