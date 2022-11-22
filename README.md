@@ -71,6 +71,10 @@ download
 [here](https://raw.githubusercontent.com/setzler/LMS-Statistical-Extracts/main/StatisticalExtracts/LMS-Stayer-Differences.csv).
 The first 3 rows of the statistical extract are as follows:
 
+``` r
+dd = setDT(read.csv(file="StatisticalExtracts/LMS-Stayer-Differences.csv"))
+```
+
 | EventTime | LogWageDiff_Unconditional | LogVADiff_Unconditional | LogWageDiff_FirmLevel | LogVADiff_FirmLevel | LogWageDiff_MarketLevel | LogVADiff_MarketLevel |
 |----------:|--------------------------:|------------------------:|----------------------:|--------------------:|------------------------:|----------------------:|
 |        -6 |                 0.0047330 |               0.0082319 |             0.0034821 |           0.0099495 |               0.0020086 |             0.0079590 |
@@ -121,6 +125,10 @@ available for download
 [here](https://raw.githubusercontent.com/setzler/LMS-Statistical-Extracts/main/StatisticalExtracts/LMS-Regional-Passthrough.csv).
 The first 3 rows of the statistical extract are as follows:
 
+``` r
+dd = setDT(read.csv(file="StatisticalExtracts/LMS-Regional-Passthrough.csv"))
+```
+
 | BroadMarket      | UnconditionalPassthrough | NetPassthrough | MarketPassthrough | Parameter_rho | Parameter_beta |
 |:-----------------|-------------------------:|---------------:|------------------:|--------------:|---------------:|
 | Midwest_Goods    |                0.1562206 |      0.1558363 |         0.1795542 |     0.8435221 |        4.56935 |
@@ -168,6 +176,10 @@ statistical extract containing these estimates is available for download
 [here](https://raw.githubusercontent.com/setzler/LMS-Statistical-Extracts/main/StatisticalExtracts/LMS-Regional-Rents.csv).
 The first 3 rows of the statistical extract are as follows:
 
+``` r
+dd = setDT(read.csv(file="StatisticalExtracts/LMS-Regional-Rents.csv"))
+```
+
 | BroadMarket      | SampleWorkerYears | SampleFirmYears | LaborShare | ValueAdded | Wagebill | Parameter_alpha | WorkerRents_FirmLevel | WorkerRents_MarketLevel | FirmRents_FirmLevel | FirmRents_MarketLevel |
 |:-----------------|------------------:|----------------:|-----------:|-----------:|---------:|----------------:|----------------------:|------------------------:|--------------------:|----------------------:|
 | Midwest_Goods    |          42908.01 |        1945.136 |  0.6298813 |   91198.66 | 43647.52 |       0.2538398 |              6801.869 |                7837.094 |            4041.102 |              4940.472 |
@@ -211,6 +223,10 @@ particular, the variables are:
 
 The statistics are available for download
 [here](https://raw.githubusercontent.com/setzler/LMS-Statistical-Extracts/main/StatisticalExtracts/LMS-Firm-Worker-Matches.csv).
+
+``` r
+dd = setDT(read.csv(file="StatisticalExtracts/LMS-Firm-Worker-Matches.csv"))
+```
 
 | FirmCluster_k | Size_FirmCluster_k | FirmPremium_psik | SkillComplementarity_thetak | WorkerDecile_q | WorkerSkill_xq | ExpectedLogWage_wkq |
 |--------------:|-------------------:|-----------------:|----------------------------:|---------------:|---------------:|--------------------:|
@@ -264,16 +280,22 @@ connected subset of firms. The variables provided are:
   $\text{Var}(w_{it})$.
 - `BetweenFirmVariance`: This is the between-firm variance in log wages
   (or earnings), $\text{Var}(w_{j})$.
+- `WihtinFirmVariance`: This is the within-firm variance in log wages
+  (or earnings), $\text{Var}(w_{it} - w_{j})$.
 
 The statistics are available for download
 [here](https://raw.githubusercontent.com/setzler/LMS-Statistical-Extracts/main/StatisticalExtracts/LMS-Firm-Worker-Matches.csv).
 The first 3 rows of the statistical extract are as follows:
 
-| Country | YearRange | Set       | WorkerCount | MoverCount | LogWageVariance | BetweenFirmVariance |
-|:--------|----------:|:----------|------------:|-----------:|----------------:|--------------------:|
-| Austria |         3 | connected |     2844534 |     340754 |       0.1830276 |           0.0798959 |
-| Italy   |         3 | connected |      863955 |     130469 |       0.1762210 |           0.0791938 |
-| Norway  |         3 | connected |      986365 |     181415 |       0.2292411 |           0.1021057 |
+``` r
+dd = setDT(read.csv(file="StatisticalExtracts/BHLMMS-WithinBetween-Variance.csv"))
+```
+
+| Country | YearRange | Set       | WorkerCount | MoverCount | FirmCount | LogWageVariance | BetweenFirmVariance | WithinFirmVariance |
+|:--------|----------:|:----------|------------:|-----------:|----------:|----------------:|--------------------:|-------------------:|
+| Austria |         3 | connected |     2844534 |     340754 |    116960 |       0.1830276 |           0.0798959 |          0.1031317 |
+| Italy   |         3 | connected |      863955 |     130469 |     54299 |       0.1762210 |           0.0791938 |          0.0970272 |
+| Norway  |         3 | connected |      986365 |     181415 |     63397 |       0.2292411 |           0.1021057 |          0.1271353 |
 
 ## Firm Effects and Sorting in Tax Data from the US and 4 European Countries
 
@@ -314,6 +336,10 @@ discussion of the methods. The variables are:
 The estimates using each of those methods are available for download
 [here](https://raw.githubusercontent.com/setzler/LMS-Statistical-Extracts/main/StatisticalExtracts/BHLMMS-FirmEffects-Sorting.csv).
 The first 3 rows of the statistical extract are as follows:
+
+``` r
+dd = setDT(read.csv(file="StatisticalExtracts/BHLMMS-FirmEffects-Sorting.csv"))
+```
 
 | Country | YearRange | Estimator | LogWageVariance | FirmEffectVariance | FirmWorkerEffectsCovariance |
 |:--------|----------:|:----------|----------------:|-------------------:|----------------------------:|

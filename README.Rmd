@@ -23,6 +23,11 @@ Aside from the statistical extracts described here, LMS papers also produced  pu
 - [textables](https://github.com/setzler/textables): Provides automated production of highly-customized LaTeX tables, including PDF compilation, directly from R. All tables in LMS and BHLMMS were produced using this package. This package is written in R.
 
 
+``` {r echo = FALSE, results = 'asis'}
+library(data.table) 
+```
+
+
 ## Value Added and Wage Growth for Stayers in the US Tax Data
 
 Here, we provide the estimates of the regional pass-through from firm productivity shocks to the earnings of workers.  In particular, we provide the region-specific changes in log earnings and log value added relative to event time zero at which a log value added shock occurs using the   approach described under the heading ``Difference-in-Difference Illustration of Internal Instruments" in subsection III.A of [LMS](https://www.bradleysetzler.com/files/Lamadon-Mogstad-Setzler.pdf). The provided variables are:
@@ -34,9 +39,11 @@ Here, we provide the estimates of the regional pass-through from firm productivi
 
 The statistical extract containing these estimates is available for download [here](https://raw.githubusercontent.com/setzler/LMS-Statistical-Extracts/main/StatisticalExtracts/LMS-Stayer-Differences.csv). The first 3 rows of the statistical extract are as follows:
 
-``` {r echo = FALSE, results = 'asis'}
-library(data.table)
+``` {r echo = TRUE, results = 'asis'} 
 dd = setDT(read.csv(file="StatisticalExtracts/LMS-Stayer-Differences.csv"))
+```
+
+``` {r echo = FALSE, results = 'asis'} 
 knitr::kable(dd[1:3])
 ```
 
@@ -64,9 +71,11 @@ The statistical extract contains the following estimates:
 
 Estimating this equation requires population employer-employee data on earnings and firm value added. We provide estimates of the various terms in this equation. The statistical extract containing these estimates is available for download [here](https://raw.githubusercontent.com/setzler/LMS-Statistical-Extracts/main/StatisticalExtracts/LMS-Regional-Passthrough.csv). The first 3 rows of the statistical extract are as follows:
 
-``` {r echo = FALSE, results = 'asis'}
-library(data.table)
+``` {r echo = TRUE, results = 'asis'} 
 dd = setDT(read.csv(file="StatisticalExtracts/LMS-Regional-Passthrough.csv"))
+```
+
+``` {r echo = FALSE, results = 'asis'} 
 knitr::kable(dd[1:3])
 ```
 
@@ -93,9 +102,11 @@ The statistical extract contains the following estimates:
 
 We provide estimates of the various terms in this equation. The statistical extract containing these estimates is available for download [here](https://raw.githubusercontent.com/setzler/LMS-Statistical-Extracts/main/StatisticalExtracts/LMS-Regional-Rents.csv). The first 3 rows of the statistical extract are as follows:
 
-``` {r echo = FALSE, results = 'asis'}
-library(data.table)
+``` {r echo = TRUE, results = 'asis'} 
 dd = setDT(read.csv(file="StatisticalExtracts/LMS-Regional-Rents.csv"))
+```
+
+``` {r echo = FALSE, results = 'asis'} 
 knitr::kable(dd[1:3])
 ```
 
@@ -124,8 +135,11 @@ Estimating this equation requires population employer-employee data on earnings 
 
 The statistics are available for download [here](https://raw.githubusercontent.com/setzler/LMS-Statistical-Extracts/main/StatisticalExtracts/LMS-Firm-Worker-Matches.csv).
 
-``` {r echo = FALSE, results = 'asis'}
+``` {r echo = TRUE, results = 'asis'}
 dd = setDT(read.csv(file="StatisticalExtracts/LMS-Firm-Worker-Matches.csv"))
+```
+
+``` {r echo = FALSE, results = 'asis'} 
 knitr::kable(dd[1:3])
 ```
 
@@ -156,11 +170,15 @@ In addition to providing the within-between decomposition, [BHLMMS](https://www.
 - `FirmCount`: This variable is the count of firms used in the estimation.
 - `LogWageVariance`: This is the variance in log wages (or earnings), $\text{Var}(w_{it})$.
 - `BetweenFirmVariance`: This is the between-firm variance in log wages (or earnings), $\text{Var}(w_{j})$.
+- `WihtinFirmVariance`: This is the within-firm variance in log wages (or earnings), $\text{Var}(w_{it} - w_{j})$.
 
 The statistics are available for download [here](https://raw.githubusercontent.com/setzler/LMS-Statistical-Extracts/main/StatisticalExtracts/LMS-Firm-Worker-Matches.csv).  The first 3 rows of the statistical extract are as follows:
 
-``` {r echo = FALSE, results = 'asis'}
+``` {r echo = TRUE, results = 'asis'}
 dd = setDT(read.csv(file="StatisticalExtracts/BHLMMS-WithinBetween-Variance.csv"))
+```
+
+``` {r echo = FALSE, results = 'asis'} 
 knitr::kable(dd[1:3])
 ```
 
@@ -185,8 +203,11 @@ Estimating this equation requires population employer-employee data on earnings 
 
 The estimates using each of those methods are available for download [here](https://raw.githubusercontent.com/setzler/LMS-Statistical-Extracts/main/StatisticalExtracts/BHLMMS-FirmEffects-Sorting.csv).  The first 3 rows of the statistical extract are as follows:
 
-``` {r echo = FALSE, results = 'asis'}
+``` {r echo = TRUE, results = 'asis'}
 dd = setDT(read.csv(file="StatisticalExtracts/BHLMMS-FirmEffects-Sorting.csv"))
+```
+
+``` {r echo = FALSE, results = 'asis'} 
 knitr::kable(dd[1:3])
 ```
 

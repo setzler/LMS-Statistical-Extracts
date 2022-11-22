@@ -24,15 +24,15 @@ Extract.LMS.Matches <- function(dataloc = "PrepareExtracts/data-raw", outputloc 
 
   # we reconstruct x using the mean wage equation
   dd3[, x_jq := (w_jq - psi_j) / theta_j]
-  
+
   # cluster sizes
   dd3 = merge(dd3, dd$cluster_sizes[,list(Size_FirmCluster=sum(size)),list(FirmCluster=cluster)], by="FirmCluster")
-  
+
   # remove unnecessary information, use descriptive names
-  dd3 <- dd3[, list(FirmCluster_k = FirmCluster, Size_FirmCluster_k = Size_FirmCluster, 
+  dd3 <- dd3[, list(FirmCluster_k = FirmCluster, Size_FirmCluster_k = Size_FirmCluster,
                     FirmPremium_psik = psi_j, SkillComplementarity_thetak = theta_j,
                     WorkerDecile_q = WorkerEffectQ, WorkerSkill_xq = x_jq, ExpectedLogWage_wkq = w_jq)]
-  
+
   if(adjusted){
     write.csv(dd3,file=sprintf("%s/LMS-Firm-Worker-Matches.csv",outputloc), row.names=F)
   }
@@ -56,25 +56,25 @@ Extract.LMS.RegionalCharacteristics <- function(dataloc = "PrepareExtracts/data-
 
   dd <- setDT(read.csv(sprintf("%s/LMS_params_naics2_cz_broadmarket.csv",dataloc)))
   dd <- dd[ma == "ma1"] # preferred MA(1) specification
-  
-  dd2 = dd[, list(BroadMarket = broad_market, UnconditionalPassthrough = unc_pt, 
-                  NetPassthrough = net_pt, MarketPassthrough = market_pt, 
+
+  dd2 = dd[, list(BroadMarket = broad_market, UnconditionalPassthrough = unc_pt,
+                  NetPassthrough = net_pt, MarketPassthrough = market_pt,
                   Parameter_rho = rho, Parameter_beta = beta)]
 
   write.csv(dd2,file=sprintf("%s/LMS-Regional-Passthrough.csv",outputloc), row.names=F)
-  
-  dd3 = dd[, list(BroadMarket = broad_market, 
+
+  dd3 = dd[, list(BroadMarket = broad_market,
                   SampleWorkerYears = workeryears, SampleFirmYears = firmyears,
-                  LaborShare = labor_share, 
+                  LaborShare = labor_share,
                   ValueAdded = EVA_pc, Wagebill = EWB_pc,
                   Parameter_alpha = alpha,
-                  WorkerRents_FirmLevel = Rw_firm, 
-                  WorkerRents_MarketLevel = Rw_market,  
-                  FirmRents_FirmLevel = Rf_firm, 
+                  WorkerRents_FirmLevel = Rw_firm,
+                  WorkerRents_MarketLevel = Rw_market,
+                  FirmRents_FirmLevel = Rf_firm,
                   FirmRents_MarketLevel = Rf_market)]
-  
+
   write.csv(dd3,file=sprintf("%s/LMS-Regional-Rents.csv",outputloc), row.names=F)
-  
+
 }
 
 
@@ -85,9 +85,9 @@ Extract.LMS.StayerDifferences <- function(dataloc = "PrepareExtracts/data-raw", 
   # url <- "https://raw.githubusercontent.com/setzler/LMS/main/4_StatisticalAnalyses/data/params/LMS_DiD_naics2_cz.csv"
   # destfile <- "~/Downloads/LMS_DiD_naics2_cz.csv"
   # download.file(url = url, destfile = destfile)
-  
+
   dd <- setDT(read.csv(sprintf("%s/LMS_DiD_naics2_cz.csv",dataloc)))
-  
+
   dd = dd[, list(EventTime=event_time,
                  LogWageDiff_Unconditional = wages, LogVADiff_Unconditional = va,
                  LogWageDiff_FirmLevel = wagesnet, LogVADiff_FirmLevel = vanet,
@@ -99,24 +99,25 @@ Extract.LMS.StayerDifferences <- function(dataloc = "PrepareExtracts/data-raw", 
 
 
 Extract.BHLMMS.VarDecomp <- function(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts"){
-  
+
   # Within-Between
   dd <- setDT(read.csv(sprintf("%s/BHLMMS_extract_withinbetween.csv",dataloc)))
-  dd = dd[,list( Country = country, YearRange = year_range, Set = set, 
+  dd = dd[,list( Country = country, YearRange = year_range, Set = set,
                  WorkerCount = workers, MoverCount = movers, FirmCount = firms,
-                 LogWageVariance = var_total, BetweenFirmVariance = between_var)]
+                 LogWageVariance = var_total, BetweenFirmVariance = between_var, WithinFirmVariance = var_total - between_var)]
   dd = dd[order(YearRange,Set,Country)]
   write.csv(dd,file=sprintf("%s/BHLMMS-WithinBetween-Variance.csv",outputloc), row.names=F)
-  
+
   # Firm and Worker Effects
-  dd <- setDT(read.csv(sprintf("%s/BHLMMS_extract_vardecomp.csv",dataloc))) 
-  dd = dd[, list( Country=country, YearRange = year_range, Estimator=method, LogWageVariance = var_total, 
+  dd <- setDT(read.csv(sprintf("%s/BHLMMS_extract_vardecomp.csv",dataloc)))
+  dd = dd[, list( Country=country, YearRange = year_range, Estimator=method, LogWageVariance = var_total,
                    FirmEffectVariance = var_psi, FirmWorkerEffectsCovariance = cov_psi_alpha)]
   dd = dd[order(Country,Estimator,YearRange)]
   write.csv(dd,file=sprintf("%s/BHLMMS-FirmEffects-Sorting.csv",outputloc), row.names=F)
-  
+
 }
 
+## not run:
 # Extract.LMS.Matches(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts")
 # Extract.LMS.Matches(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts", adjusted=FALSE)
 # Extract.LMS.RegionalCharacteristics(dataloc = "PrepareExtracts/data-raw", outputloc = "StatisticalExtracts")
