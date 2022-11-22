@@ -346,3 +346,11 @@ dd = setDT(read.csv(file="StatisticalExtracts/BHLMMS-FirmEffects-Sorting.csv"))
 | Austria |         3 | CRE       |       0.1830276 |          0.0185641 |                   0.0160264 |
 | Austria |         6 | CRE       |       0.1865862 |          0.0218879 |                   0.0182701 |
 | Austria |         3 | FE        |       0.1830276 |          0.0360737 |                  -0.0048577 |
+
+## Licenses
+
+The code is licensed under a [MIT License.](LICENSE.md)
+
+The data is licensed under a
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative
+Commons Attribution 4.0 International License</a>.
