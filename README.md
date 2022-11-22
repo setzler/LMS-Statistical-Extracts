@@ -9,12 +9,14 @@ Setzler:
   in the US labor market” by Thibaut Lamadon, Magne Mogstad, and Bradley
   Setzler. American Economic Review 112.1 (2022): 169-212.
   \[[LMS](https://www.bradleysetzler.com/files/Lamadon-Mogstad-Setzler.pdf)\]
+  \[[bibtex](cite_LMS.bib)\]
 
 - “How Much Should we Trust Estimates of Firm Effects and Worker
   Sorting?” by Stéphane Bonhomme, Kerstin Holzheu, Thibaut Lamadon,
   Elena Manresa, Magne Mogstad, and Bradley Setzler. Working Paper
   w27368. National Bureau of Economic Research (2021).
   \[[BHLMMS](https://www.bradleysetzler.com/files/BHLMM-Setzler.pdf)\]
+  \[[bibtex](cite_BHLMMS.bib)\]
 
 Aside from the statistical extracts described here, LMS papers also
 produced publicly-available software packages that may be useful to
