@@ -13,7 +13,7 @@ Setzler:
 
 - “How Much Should we Trust Estimates of Firm Effects and Worker
   Sorting?” by Stéphane Bonhomme, Kerstin Holzheu, Thibaut Lamadon,
-  Elena Manresa, Magne Mogstad, and Bradley Setzler. Journal of Labor Economics 41.2 (2023).
+  Elena Manresa, Magne Mogstad, and Bradley Setzler. Journal of Labor Economics 41.2 (2023): 291–322.
   \[[BHLMMS](https://www.bradleysetzler.com/files/BHLMM-Setzler.pdf)\]
   \[[bibtex](cite_BHLMMS.bib)\]
 
